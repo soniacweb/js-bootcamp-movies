@@ -8,16 +8,16 @@ const fetchData = async () => {
   const response = await axios.get('http://www.omdbapi.com/', {
     params: {
       apikey: '8b6de0c4',
-      s: 'avengers'
-      // t: 'the',
+      // s: 'avengers',
+      i: 'tt0848228'
       // type: 'movie'
     }
   })
-  const movies = response.data
-  console.log(response.data)
-  for (let movie in movies.Search[0]) {
-    console.log(movie)
-  }
+  // const movies = response.data
+  // console.log(response.data)
+  // for (let movie in movies.Search[0]) {
+  //   console.log(movie)
+  // }
 }
 
 fetchData()
