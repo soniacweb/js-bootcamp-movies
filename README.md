@@ -14,3 +14,24 @@ First request, and second request for further details:
 API documentation: 
 
 <img src="./assets/Screenshot 2021-01-05 at 16.03.09.png" />
+
+## Autofill Design
+<img src="./assets/Screenshot 2021-01-05 at 16.07.05.png" />
+
+# Searching the API on Input Change
+
+```
+//select input element:
+const input = document.querySelector('input')
+//event listener for input as user types:
+//take the value and take that value to pass into the fetchdata and use to search the database
+input.addEventListener('input', (event) => {
+fetchData(event.target.value)
+```
+Pass the searchTerm param for the `fethData` to accept:
+
+`const fetchData = async (searchTerm) => {...`
+
+As per the api documentation, adding a param of `s` with the `searchTerm` param to corroborate with the user input in the eventlistener:
+
+`s: searchTerm`
