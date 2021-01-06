@@ -58,7 +58,7 @@ Wanted to allow the user to press keys inside the input for thir search as many 
 ## setTimeout() function
 
 The code excert below explained: the very first time this code runs, timoutId will be undefined, therefore the `if statement` won't run. 
-When the user starts inputting keypresses, it will store in the `timeoutid` variable and the `setTimeout` will be triggered to only fetch data once there is a pause of one second in the user's input. 
+When the user starts inputting keypresses, it will store in the `timeoutid` and the variable will be a truthy, triggering the if statement which will clear the `setTimeout`. The timer `setTimeout`, will only be triggered to fetch data once there is a pause of one second in the user's input. 
 
 ```
 let timeoutId;
@@ -66,8 +66,8 @@ const onInput = event => {
   if (timeoutId) {
     clearTimeout(timeoutId)
   }
-  setTimeout(() => {
-  timeoutId = fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
+   timeoutId = setTimeout(() => {
+    fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
 }, 1000)
   }
 ```

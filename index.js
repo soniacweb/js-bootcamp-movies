@@ -26,9 +26,9 @@ const onInput = event => {
   if (timeoutId) {
     clearTimeout(timeoutId)
   }
-  setTimeout(() => {
-  timeoutId = fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
-}, 1000)
+  timeoutId = setTimeout(() => {
+  fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
+}, 500)
   }
   
 //event listener for input 
