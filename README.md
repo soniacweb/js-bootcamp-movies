@@ -35,3 +35,10 @@ Pass the searchTerm param for the `fethData` to accept:
 As per the api documentation, adding a param of `s` with the `searchTerm` param to corroborate with the user input in the eventlistener:
 
 `s: searchTerm`
+
+
+# Delaying the Search put request to the api
+
+I was making too many search requests to the api too often, and needed to change the current behaviour and delay this.
+
+<img src="./assets/Screenshot 2021-01-06 at 13.22.39.png" />
