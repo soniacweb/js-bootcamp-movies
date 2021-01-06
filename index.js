@@ -4,6 +4,7 @@
 //step 1 define and set up a helper function to fetch the data
 //will want to use async/await syntax when making the request
 
+
 const fetchData = async (searchTerm) => {
   const response = await axios.get('http://www.omdbapi.com/', {
     params: {
@@ -11,17 +12,30 @@ const fetchData = async (searchTerm) => {
       s: searchTerm
     }
   })
-  // const movies = response.data
   console.log(response.data)
-  // for (let movie in movies.Search[0]) {
-  //   console.log(movie)
-  // }
 }
+
+
+
 
 //select input
 const input = document.querySelector('input')
-//event listener for input
-//take the value and take that value to pass into the fetchdata and use to search the database
-input.addEventListener('input', (event) => {
-fetchData(event.target.value)
-})
+
+let timeoutId;
+const onInput = event => {
+  if (timeoutId) {
+    clearTimeout(timeoutId)
+  }
+  setTimeout(() => {
+  timeoutId = fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
+}, 1000)
+  }
+  
+//event listener for input 
+input.addEventListener('input', onInput)
+
+
+// fetchData()
+
+
+

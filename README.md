@@ -41,4 +41,33 @@ As per the api documentation, adding a param of `s` with the `searchTerm` param 
 
 I was making too many search requests to the api too often, and needed to change the current behaviour and delay this.
 
+### current behaviour:
+
+Everytime there is a keypress, the application is currently doing a search request top the api.
+
+<img src="./assets/Screenshot 2021-01-06 at 13.32.07.png" />
+
+## what to aim for 
+
+Wanted to allow the user to press keys inside the input for thir search as many times as they'd like, and only after 1 second of pause, would the application send an api search request:
+
+<img src="./assets/Screenshot 2021-01-06 at 13.32.58.png" />
+
 <img src="./assets/Screenshot 2021-01-06 at 13.22.39.png" />
+
+## setTimeout() function
+
+The code excert below explained: the very first time this code runs, timoutId will be undefined, therefore the `if statement` won't run. 
+When the user starts inputting keypresses, it will store in the `timeoutid` variable and the `setTimeout` will be triggered to only fetch data once there is a pause of one second in the user's input. 
+
+```
+let timeoutId;
+const onInput = event => {
+  if (timeoutId) {
+    clearTimeout(timeoutId)
+  }
+  setTimeout(() => {
+  timeoutId = fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
+}, 1000)
+  }
+```
