@@ -34,11 +34,15 @@ root.innerHTML = `
 
 //select input
 const input = document.querySelector('input')
+const dropdown = document.querySelector('.dropdown')
+const resultsWrapper = document.querySelector('.results')
 
 const onInput = async event => {
   const movies = await fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
   console.log(movies)
 
+  dropdown.classList.add('.is-active') 
+  
   for (let movie of movies) {
     console.log(movie.Poster, movie.Title)
     const div = document.createElement('div')

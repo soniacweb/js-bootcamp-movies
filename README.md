@@ -200,3 +200,32 @@ if (response.data.Error) {
 
 # Creating a reusable autocomplete widget
 
+Creating the html via javaScript:
+
+```
+const root = document.querySelector('autocomplete')
+root.innerHTML = `
+<label><b>Search for a Movie</b></label>
+<input class='input' />
+<div class="dropdown">
+<div class="dropdown-menu">
+  <div class="dropdown-content results">
+    <a href="" class="dropdown-item">Movie #1</a>
+    <a href="" class="dropdown-item">Movie #2</a>
+    <a href="" class="dropdown-item">Movie #3</a>
+  </div>
+ </div>
+</div>
+`
+```
+
+Creating the dopdown feature:
+
+```
+const dropdown = document.querySelector('.dropdown')
+const resultsWrapper = document.querySelector('.results')
+```
+
+Adding the `is-active` class to the `.dropdown` AFTER we've fetched the data sucessfully in the `onInput` function:
+
+`dropdown.classList.add('.is-active') `
