@@ -245,7 +245,7 @@ I noticed some of the API responses for `Posters` were `N/A`. I included a simpl
 
 `const imgSRC = movie.Poster === 'N/A' ? '' : movie.Poster`
 
-# Automatically Closing the Dropdown using JavaScript
+# Automatically Closing the Dropdown using JavaScript adding and removing Bulma classes
 
 Feature to close the dropdown if the user doesn't want to see the dropdown options by clicking anywhere outside of the dropdown.
 
@@ -261,4 +261,16 @@ document.addEventListener('click', e => {
   dropdown.classList.remove('is-active') 
 })
 
+```
+
+# Handling Empty Responses
+
+Any empty responses, I would want the dropdown closed.
+
+Therefore straight after fetching the data, if empty response, return early.
+```
+if (!movies.length) {
+    dropdown.classList.remove('is-active') 
+    return
+  }
 ```

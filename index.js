@@ -36,6 +36,10 @@ const resultsWrapper = document.querySelector('.results')
 const onInput = async event => {
   const movies = await fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
   console.log(movies)
+  if (!movies.length) {
+    dropdown.classList.remove('is-active') 
+    return
+  }
 
   resultsWrapper.innerHTML = ''
   dropdown.classList.add('is-active') 
