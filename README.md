@@ -1,5 +1,13 @@
 # js-bootcamp-movies
 
+## Technologies
+
+- JavaScript & es6
+- Movie API
+- HTML5
+- Bulma
+- CSS3
+
 
 ## Plan 
 
@@ -189,3 +197,6 @@ if (response.data.Error) {
     return []
   }
 ```
+
+# Creating a reusable autocomplete widget
+
