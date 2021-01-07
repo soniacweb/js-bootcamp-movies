@@ -98,7 +98,7 @@ return () => {
 }
 ```
 
-Final code with logic - `...args` allows for multiple arguments to be passed in: 
+Final code with logic - `...args` allows for multiple arguments to be passed in. the `.apply` method attached to the func calls the function as it normally would, and takes all the `args` - an array or arguments, and pass them in seperately: 
 ```
 const debounce = (func) => {
 let timeoutId;
@@ -112,3 +112,7 @@ return (...args) => {
   }
  }
  ```
+
+ The equivalent: 
+
+ <img src="./assets/Screenshot 2021-01-07 at 18.39.13.png">
