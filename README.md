@@ -229,3 +229,8 @@ const resultsWrapper = document.querySelector('.results')
 Adding the `is-active` class to the `.dropdown` AFTER we've fetched the data sucessfully in the `onInput` function:
 
 `dropdown.classList.add('.is-active') `
+
+## Adding Bulma class and the search results to the `resultswrapper` in the dropdown:
+
+`options.classList.add('dropdown-item')`
+`resultsWrapper.appendChild(options)`

@@ -42,15 +42,16 @@ const onInput = async event => {
   console.log(movies)
 
   dropdown.classList.add('.is-active') 
-  
+
   for (let movie of movies) {
     console.log(movie.Poster, movie.Title)
-    const div = document.createElement('div')
-    div.innerHTML = `
+    const options = document.createElement('a')
+    options.classList.add('dropdown-item')
+    options.innerHTML = `
     <img src="${movie.Poster}"/>
-    <h1>${movie.Title}</h1>`
+    ${movie.Title}`
 
-    document.querySelector('#target').appendChild(div)
+    resultsWrapper.appendChild(options)
   }
 }
   
