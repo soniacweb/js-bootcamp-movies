@@ -116,3 +116,76 @@ return (...args) => {
  The equivalent: 
 
  <img src="./assets/Screenshot 2021-01-07 at 18.39.13.png">
+
+ I wanted to limit how often `onInput` gets invoked thanks to the `debounce` function.
+
+ ### One possible way to refactor `onInput` as an argument for `debounce`
+
+ ```
+const onInput = debounce(event => {
+  fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
+  })
+ ```
+
+ # But we can just invoke when calling the function instead inside the eventlistener
+
+ ```
+const onInput = event => {
+  fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
+  }
+  
+//event listener for input 
+input.addEventListener('input', debounce(onInput, 500))
+
+
+ ```
+
+ # Awaiting Async Functions
+
+ Storing the data through an async function as we're awaiting the async operation. 
+ I want ot iterate over the list of movies in the `onInput` function and turn each movie into a snippet of HTML div element that summarises each movie.
+
+ I want to grab the `Poster and Title` from the api response. 
+
+Current staus of code using the `for of` loop: 
+
+ ```
+const onInput = async event => {
+  const movies = await fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
+  console.log(movies)
+
+  for (let movie of movies) {
+    console.log(movie.Poster, movie.Title)
+  }
+}
+ ```
+
+## Rendering Movies
+
+Created a div and h1 tag to store the information for each looped movie. 
+Appended to the document.
+
+```
+for (let movie of movies) {
+    console.log(movie.Poster, movie.Title)
+    const div = document.createElement('div')
+    div.innerHTML = `
+    <img src="${movie.Poster}"/>
+    <h1>${movie.Title}</h1>`
+
+    document.querySelector('#target').appendChild(div)
+  }
+}
+```
+
+# Handling Errored Responses
+
+There is a glitch with the api and it doesn't accomadate partial search terms. 
+
+This snippet of code was used for handling this glitch in the `fetchData` function- I wanted it to return an empty array (nothing):
+
+```
+if (response.data.Error) {
+    return []
+  }
+```
