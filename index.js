@@ -37,14 +37,17 @@ const onInput = async event => {
   const movies = await fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
   console.log(movies)
 
+  resultsWrapper.innerHTML = ''
   dropdown.classList.add('is-active') 
 
   for (let movie of movies) {
     console.log(movie.Poster, movie.Title)
     const options = document.createElement('a')
+    const imgSRC = movie.Poster === 'N/A' ? '' : movie.Poster
+
     options.classList.add('dropdown-item')
     options.innerHTML = `
-    <img src="${movie.Poster}" />
+    <img src="${imgSRC}" />
     ${movie.Title}
     `
 

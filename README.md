@@ -198,7 +198,7 @@ if (response.data.Error) {
   }
 ```
 
-# Creating a reusable autocomplete widget
+# Working with Bulma via JavaScript and creating a reusable autocomplete widget
 
 Creating the html via javaScript:
 
@@ -234,3 +234,13 @@ Adding the `is-active` class to the `.dropdown` AFTER we've fetched the data suc
 
 `options.classList.add('dropdown-item')`
 `resultsWrapper.appendChild(options)`
+
+# Handling Broken Images
+
+After fetching data and rendering it in the dropdown, I wanted to clear out the previous search results with the folliwing line after every sucessful search:
+
+`resultsWrapper.innerHTML = ''`
+
+I noticed some of the API responses for `Posters` were `N/A`. I included a simple check for `N/A`- if true, don't render broken image, using a ternary expression to do so:
+
+`const imgSRC = movie.Poster === 'N/A' ? '' : movie.Poster`
