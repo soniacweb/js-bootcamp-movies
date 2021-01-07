@@ -244,3 +244,21 @@ After fetching data and rendering it in the dropdown, I wanted to clear out the 
 I noticed some of the API responses for `Posters` were `N/A`. I included a simple check for `N/A`- if true, don't render broken image, using a ternary expression to do so:
 
 `const imgSRC = movie.Poster === 'N/A' ? '' : movie.Poster`
+
+# Automatically Closing the Dropdown using JavaScript
+
+Feature to close the dropdown if the user doesn't want to see the dropdown options by clicking anywhere outside of the dropdown.
+
+Any element contained inside of `root` that would mean the user has clicked any of the elements inside the dropdown- i'd therefore want the dropdown remainging open. If any elements outside of `root` were clicked, I would want the dropdown closed and therefore would need to remove the class `is-active` provided by Bulma.
+
+Adding a global event listener to the document:
+
+```
+
+document.addEventListener('click', e => {
+  console.log(e.target)
+  if (!root.contains(e.target))
+  dropdown.classList.remove('is-active') 
+})
+
+```

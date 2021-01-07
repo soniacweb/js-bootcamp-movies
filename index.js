@@ -57,7 +57,11 @@ const onInput = async event => {
   
 //event listener for input 
 input.addEventListener('input', debounce(onInput, 500))
-
+document.addEventListener('click', e => {
+  console.log(e.target)
+  if (!root.contains(e.target))
+  dropdown.classList.remove('is-active') 
+})
 
 // fetchData()
 
