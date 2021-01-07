@@ -274,3 +274,8 @@ if (!movies.length) {
     return
   }
 ```
+
+# Handling Movie Selection
+
+### Adding in additional features. Once a user clicks on a movie they have searched for, I want to provide further information about the movie.
+
