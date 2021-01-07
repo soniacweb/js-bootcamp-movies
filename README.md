@@ -53,13 +53,12 @@ Wanted to allow the user to press keys inside the input for thir search as many 
 
 <img src="./assets/Screenshot 2021-01-06 at 13.32.58.png" />
 
-<img src="./assets/Screenshot 2021-01-06 at 13.22.39.png" />
 
 ## setTimeout() function (the process is called 'debouncing an input- typically for performance reasons')
 
 <img src="./assets/Screenshot 2021-01-07 at 14.06.12.png" />
 
-The code excert below explained: the very first time this code runs, timoutId will be undefined, therefore the `if statement` won't run. 
+The code excerpt below explained: the very first time this code runs, timoutId will be undefined, therefore the `if statement` won't run. 
 When the user starts inputting keypresses, it will store in the `timeoutid` and the variable will be a truthy, triggering the if statement which will clear the `setTimeout`. The timer `setTimeout`, will only be triggered to fetch data once there is a pause of one second in the user's input. 
 
 ```
@@ -78,6 +77,38 @@ const onInput = event => {
 
 <img src="./assets/Screenshot 2021-01-06 at 16.26.47.png" />
 
-Aim: creating a callback helper function into a debounce function.
+Aim: creating a callback helper function into a debounce function which will return a function too.
+
+<img src="./assets/Screenshot 2021-01-07 at 14.13.33.png" />
 
 
+Making a new function called `debounce`:
+
+```
+const debounce = (func) => {
+
+}
+```
+
+Inside the function, i'll return a function itself- the wrapper that will implement a shield and guard how often `func` is invoked:
+
+```
+return () => {
+  
+}
+```
+
+Final code with logic - `...args` allows for multiple arguments to be passed in: 
+```
+const debounce = (func) => {
+let timeoutId;
+return (...args) => {
+  if (timeoutId) {
+    clearTimeout(timeoutId)
+   }
+  timeoutId = setTimeout(() => {
+    func.apply(null, args) 
+   }, 1000)
+  }
+ }
+ ```
