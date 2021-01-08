@@ -313,7 +313,7 @@ Created another helper function called `movieTemplate` which will return a multi
 
 # Making the Autocomplete Reusable
 
-Reusable code will be inside autocomplete.js.
+Reusable code will be inside autocomplete.js, and centralise all the requests in index.js.
 
 <img src="./assets/Screenshot 2021-01-08 at 21.34.05.png" />
 
@@ -322,3 +322,10 @@ Reusable code will be inside autocomplete.js.
 Aim:
 
 <img src="./assets/Screenshot 2021-01-08 at 21.47.58.png" />
+
+
+# Extracting Selection Logic
+
+Refactor all the logic to make sure it's reusable for when a user clicks on an option.
+
+<img src="./assets/Screenshot 2021-01-08 at 22.59.47.png" />
