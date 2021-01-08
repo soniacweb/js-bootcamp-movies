@@ -277,7 +277,16 @@ if (!movies.length) {
 
 # Handling Movie Selection
 
-### Adding in additional features. Once a user clicks on a movie they have searched for, I want to provide further information about the movie.
 
-## Update the text with the exact title the user clicks on
-## rendering the movie the user clicks on and making it larger
+## Adding and eventListener for the following: 
+### Update the text with the exact title the user clicks on - `input.value = movie.Title`
+### rendering the movie the user clicks on and making it larger - removing `is-active` classList
+
+```
+options.addEventListener('click', () => {
+      dropdown.classList.remove('is-active') 
+      input.value = movie.Title
+    })
+```
+
+## Adding in additional features. Once a user clicks on a movie they have searched for, I want to provide further information about the movie.
