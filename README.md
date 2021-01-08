@@ -219,14 +219,14 @@ root.innerHTML = `
 `
 ```
 
-Creating the dopdown feature:
+Creating the dropdown feature:
 
 ```
 const dropdown = document.querySelector('.dropdown')
 const resultsWrapper = document.querySelector('.results')
 ```
 
-Adding the `is-active` class to the `.dropdown` AFTER we've fetched the data sucessfully in the `onInput` function:
+Adding the `is-active` class to the `.dropdown` AFTER I've fetched the data sucessfully in the `onInput` function:
 
 `dropdown.classList.add('.is-active') `
 
@@ -289,4 +289,36 @@ options.addEventListener('click', () => {
     })
 ```
 
-## Adding in additional features. Once a user clicks on a movie they have searched for, I want to provide further information about the movie.
+## Adding in additional features. Once a user clicks on a movie they have searched for, I want to provide further information about the movie- Needto make a follow up request for the additional information.
+
+- Defining a helper function: onMovieSelect
+
+- create another async function for this additional request using film id.
+
+```
+const onMovieSelect = async movie => {
+  const response = await axios.get('http://www.omdbapi.com/', {
+    params: {
+      apikey: '8b6de0c4',
+      i: movie.imdbID
+    }
+  })
+  console.log(response.data)
+}
+
+```
+# Rendering an Expanded Summary
+
+Created another helper function called `movieTemplate` which will return a multiline string of Bulma styled HTML.
+
+# Making the Autocomplete Reusable
+
+Reusable code will be inside autocomplete.js.
+
+<img src="./assets/Screenshot 2021-01-08 at 21.34.05.png" />
+
+# Displaying Multiple Autocompletes
+
+Aim:
+
+<img src="./assets/Screenshot 2021-01-08 at 21.47.58.png" />
