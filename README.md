@@ -279,3 +279,5 @@ if (!movies.length) {
 
 ### Adding in additional features. Once a user clicks on a movie they have searched for, I want to provide further information about the movie.
 
+## Update the text with the exact title the user clicks on
+## rendering the movie the user clicks on and making it larger
