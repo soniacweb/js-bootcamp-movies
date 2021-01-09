@@ -1,3 +1,10 @@
+html {
+  background-color: black;
+}
+
+.content h1, .content h4, p {
+  color: white;
+}
 .tutorial {
   width: 600px;
   text-align: center;
