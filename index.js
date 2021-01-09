@@ -76,7 +76,25 @@ const onMovieSelect = async (movie, summary, side) => {
 
 //we can iterate through our two different movies
 const runComparison = () => {
-  console.log('comparing!')
+  const leftSideStats = document.querySelectorAll('#left-summary .notification')
+  const rightSideStats = document.querySelectorAll('#right-summary .notification')
+
+  leftSideStats.forEach((leftStat, i) => {
+    const rightStat = rightSideStats[i]
+    console.log(leftStat, rightStat)
+
+    const leftValue = parseInt(lleftStat.dataset.value)
+    const rightValue = parseInt(lrightStat.dataset.value)
+
+    if (leftValue > rightValue) {
+    leftStat.classList.remove('is-primary') 
+    leftStat.classList.add('is-warning') 
+  } else {
+    rightStat.classList.remove('is-primary')
+    rightStat.classList.add('is-warning')
+  }
+
+  })
 }
 
 const movieTemplate = (movieDetail) => {

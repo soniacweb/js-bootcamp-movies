@@ -418,3 +418,38 @@ Updating the `movieDetail` object:
 
 data-value=${awards}
 ```
+
+# Updating Styles
+
+Identifying all the elements on the left and right:
+
+```
+const leftSideStats = document.querySelectorAll('#left-summary .notification')
+const rightSideStats = document.querySelectorAll('#right-summary .notification')
+
+```
+
+Then loop over both of these and compate the data set values.
+
+Storing the data values via dataset to compare: 
+
+```
+const leftValue = parseInt(lleftStat.dataset.value)
+const rightValue = parseInt(lrightStat.dataset.value)
+
+```
+## Comparison logic
+
+```
+if (leftValue > rightValue) {
+    leftStat.classList.remove('is-primary') 
+    leftStat.classList.add('is-warning') 
+  } else {
+    rightStat.classList.remove('is-primary')
+    rightStat.classList.add('is-warning')
+  }
+```
+
+# Key Learnings
+Familiarty with async/await requests.
+Creating a widget that was completely reusable in nature- perfect for customisation on future projects. 
