@@ -83,9 +83,11 @@ const runComparison = () => {
     const rightStat = rightSideStats[i]
     console.log(leftStat, rightStat)
 
+    //getting data value and toring them
     const leftValue = parseInt(lleftStat.dataset.value)
     const rightValue = parseInt(lrightStat.dataset.value)
 
+    //comparing data values and styling colours to highlight 
     if (leftValue > rightValue) {
     leftStat.classList.remove('is-primary') 
     leftStat.classList.add('is-warning') 

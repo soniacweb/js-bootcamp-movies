@@ -7,6 +7,7 @@
 - HTML5
 - Bulma
 - CSS3
+- <a href="http://www.omdbapi.com/"> OMDapi</a> 
 
 
 ## Plan 
