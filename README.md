@@ -376,3 +376,32 @@ createAutoComplete({
   root: document.querySelector('#left-autocomplete'),
 })
 ```
+
+# When to Compare?
+
+- Storing movie data in two seperate movie veriables and comparing them.
+
+- added a third param in `onMovieSelect` called `side`
+- added the following logic to compare and update the responses
+
+```
+if (side === 'left') {
+    leftMovie = response.data
+  } else {
+    rightMovie = response.data
+  }
+```
+
+Run Help function to compare the data: 
+```
+if (leftMovie && rightMovie) {
+    runComparison()
+  }
+```
+
+Defining the helper function with comparison logic:
+
+1. adding a data-value property
+2. Extracting Statistic Values
+
+Updating the `movieDetail` object:
