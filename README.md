@@ -12,7 +12,7 @@
 
 ## Plan 
 
-//network hhtp request using third party library Axios
+//network http request using third party library Axios
 //step 1 define and set up a helper function to fetch the data
 //will want to use async/await syntax when making the request
 
