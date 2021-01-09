@@ -404,4 +404,17 @@ Defining the helper function with comparison logic:
 1. adding a data-value property
 2. Extracting Statistic Values
 
+# Applying Parsed Properties
+
 Updating the `movieDetail` object:
+
+```
+  const dollars = parseInt(movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, ''))
+  const metaScore = parseInt(movieDetail.Metascore)
+  const imdbRating = parseFloat(movieDetail.imdbRating)
+  const imdbVotes = parseInt(movieDetail.imdbVotes.replace(/,/g, ''))
+
+...
+
+data-value=${awards}
+```
