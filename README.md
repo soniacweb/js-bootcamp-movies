@@ -329,3 +329,50 @@ Aim:
 Refactor all the logic to make sure it's reusable for when a user clicks on an option.
 
 <img src="./assets/Screenshot 2021-01-08 at 22.59.47.png" />
+
+# Refreshed HTML Structure
+
+For two different columns for two different autocompletes. 
+
+I created `autoCompleteConfig` to store all the reusable logic for the autocomplete widget.
+
+
+```
+const autoCompleteConfig = {
+  renderOption(movie) {
+    const imgSRC = movie.Poster === 'N/A' ? '' : movie.Poster
+    return `
+    <img src="${imgSRC}" />
+    ${movie.Title} (${movie.Year})
+    `
+  },
+  onOptionSelect(movie) {
+    onMovieSelect(movie)
+  },
+  inputValue(movie) {
+    return movie.Title
+  }, 
+  async fetchData(searchTerm) {
+    const response = await axios.get('http://www.omdbapi.com/', {
+      params: {
+        apikey: '8b6de0c4',
+        s: searchTerm
+      }
+    })
+    if (response.data.Error) {
+      return []
+    }
+    return response.data.Search
+  }
+}
+
+```
+
+I then wanted to make a copy of all the properties from `createAutoCompleteConfig` in `createAutoComplete`
+
+```
+createAutoComplete({
+  ...autoCompleteConfig, 
+  root: document.querySelector('#left-autocomplete'),
+})
+```

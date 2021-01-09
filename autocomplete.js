@@ -1,6 +1,6 @@
-const createAutoComplete = ({ root, renderOption }) => {
+const createAutoComplete = ({ root, renderOption, onOptionSelect, inputValue, fetchData }) => {
   root.innerHTML = `
-  <label><b>Search For a Movie</b></label>
+  <label><b>Search</b></label>
     <input class="input" />
     <div class="dropdown">
       <div class="dropdown-menu">
@@ -15,9 +15,9 @@ const createAutoComplete = ({ root, renderOption }) => {
   const resultsWrapper = root.querySelector('.results')
   
   const onInput = async event => {
-    const movies = await fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
-    // console.log(movies)
-    if (!movies.length) {
+    const items = await fetchData(event.target.value) //identifying the value in input, take the value and take that value to pass into the fetchdata and use to search the database
+    // console.log(items)
+    if (!items.length) {
       dropdown.classList.remove('is-active') 
       return
     }
@@ -25,18 +25,18 @@ const createAutoComplete = ({ root, renderOption }) => {
     resultsWrapper.innerHTML = ''
     dropdown.classList.add('is-active') 
   
-    for (let movie of movies) {
-      console.log(movie.Poster, movie.Title)
+    for (let item of items) {
+      console.log(item.Poster, item.Title)
       const options = document.createElement('a')
-      const imgSRC = movie.Poster === 'N/A' ? '' : movie.Poster
+      const imgSRC = item.Poster === 'N/A' ? '' : item.Poster
   
       options.classList.add('dropdown-item')
-      options.innerHTML = renderOption(movie)
+      options.innerHTML = renderOption(item)
 
       options.addEventListener('click', () => {
         dropdown.classList.remove('is-active') 
-        input.value = movie.Title
-        onMovieSelect(movie)
+        input.value = inputValue(item)
+        onOptionSelect(item)
       })
   
   
